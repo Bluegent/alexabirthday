@@ -51,26 +51,11 @@ function init()
     descriptionContainer.style.textAlign = 'center';
     
     galleryContainer.addEventListener('click', function (e) {
-    if (e.clientX > window.innerWidth / 2) {
-      // Clicked on the right half of the screen
       next();
-    } else {
-      // Clicked on the left half of the screen
-      prev();
-    }
   });
 
   galleryContainer.addEventListener('touchend', function (e) {
-    const touchEndX = e.changedTouches[0].clientX;
-    const touchThreshold = 50; // Adjust this value to control sensitivity
-
-    if (touchEndX > window.innerWidth / 2 + touchThreshold) {
-      // Tapped on the right half of the screen
       next();
-    } else if (touchEndX < window.innerWidth / 2 - touchThreshold) {
-      // Tapped on the left half of the screen
-      prev();
-    }
   });
 }
 
