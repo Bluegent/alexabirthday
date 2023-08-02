@@ -28,7 +28,7 @@ frames.push({link:"https://i.imgur.com/xbtS4Jk.png",text:"Spending a day togethe
 frames.push({link:"https://i.imgur.com/5UPrfOF.png",text:"Sneaking into the abandoned Doftana penitenciary. Don't people usually break <em>OUT</em> of prison?"});
 frames.push({link:"https://i.imgur.com/9trs8tN.png",text:"Partaking in my silly rituals."});
 frames.push({link:"https://i.imgur.com/tY7zgEV.png",text:"Helping me pick and build the new table."});
-frames.push({link:"https://i.imgur.com/GQae4G7.png",text:"Going for music-filled night car rides in the Mini Uber&trade;."});
+frames.push({link:"https://i.imgur.com/GQae4G7.png",text:"Going for music-filled night car rides in the mini Uber."});
 frames.push({link:"https://i.imgur.com/qpTZnzU.png",text:"Showering together, even if we splash water here and there."});
 frames.push({link:"https://i.imgur.com/OzO8EZE.png",text:"Squish the m&acirc;&tcedil;, boop the m&acirc;&tcedil;, kiss the m&acirc;&tcedil;!"});
 frames.push({link:"https://i.imgur.com/0KGie2Q.png",text:"As a small bonus, this silly thing came out. :)"});
@@ -51,11 +51,26 @@ function init()
     descriptionContainer.style.textAlign = 'center';
     
     galleryContainer.addEventListener('click', function (e) {
+    if (e.clientX > window.innerWidth / 2) {
+      // Clicked on the right half of the screen
       next();
+    } else {
+      // Clicked on the left half of the screen
+      prev();
+    }
   });
 
   galleryContainer.addEventListener('touchend', function (e) {
+    const touchEndX = e.changedTouches[0].clientX;
+    const touchThreshold = 300; // Adjust this value to control sensitivity
+
+    if (touchEndX > window.innerWidth / 2 - touchThreshold) {
+      // Tapped on the right half of the screen
       next();
+    } else {
+      // Tapped on the left half of the screen
+      prev();
+    }
   });
 }
 
