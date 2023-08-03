@@ -69,8 +69,8 @@ function init()
     } else {
       // Tapped on the left half of the screen
       prev();
-    }*/
-  });
+    }
+  });*/
 }
 
 
