@@ -62,9 +62,8 @@ function init()
 
   galleryContainer.addEventListener('touchend', function (e) {
     const touchEndX = e.changedTouches[0].clientX;
-    const touchThreshold = 300; // Adjust this value to control sensitivity
 
-    if (touchEndX > window.innerWidth / 2 - touchThreshold) {
+    if (touchEndX > window.innerWidth * 0.35 ) {
       // Tapped on the right half of the screen
       next();
     } else {
