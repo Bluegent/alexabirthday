@@ -51,7 +51,7 @@ function init()
     descriptionContainer.style.textAlign = 'center';
     
     galleryContainer.addEventListener('click', function (e) {
-    if (e.clientX > window.innerWidth / 2) {
+    if (e.clientX > window.innerWidth * 0.35) {
       // Clicked on the right half of the screen
       next();
     } else {
@@ -60,16 +60,16 @@ function init()
     }
   });
 
-  galleryContainer.addEventListener('touchend', function (e) {
-    const touchEndX = e.changedTouches[0].clientX;
-
-    if (touchEndX > window.innerWidth * 0.35 ) {
+  /*galleryContainer.addEventListener('touchend', function (e) {
+    const touchEndX = e.touches[0].clientX;
+    const divRect = galleryContainer.getBoundingClientRect();
+    if (touchEndX > divRect.left + divRect.width * 0.35 ) {
       // Tapped on the right half of the screen
       next();
     } else {
       // Tapped on the left half of the screen
       prev();
-    }
+    }*/
   });
 }
 
